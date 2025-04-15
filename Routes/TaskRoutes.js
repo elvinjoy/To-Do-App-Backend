@@ -7,7 +7,7 @@ const {
   deleteTask,
   toggleTaskStatus,
 } = require("../Controller/TaskController");
-const { protect } = require("../middleware/auth");
+const { protect } = require("../Middleware/Auth");
 
 router.post("/create", protect, createTask);
 router.get("/alltasks", protect, getTasks);
