@@ -1,14 +1,17 @@
 const  express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const userRoutes = require('./Routes/UserRoutes');
 require("dotenv").config();
 const bodyParser = require('body-parser');
+
+const userRoutes = require('./Routes/UserRoutes');
+const taskRoutes = require('./Routes/TaskRoutes');
 
 
 app.use(bodyParser.json());
 
 app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.get("/", (req, res) => {
     res.send("Backend API is running");
