@@ -1,4 +1,3 @@
-// models/Task.js
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
@@ -10,9 +9,12 @@ const taskSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
+    trim: true,
   },
   description: {
     type: String,
+    required: true,
+    trim: true,
   },
   status: {
     type: Boolean,
@@ -21,7 +23,9 @@ const taskSchema = new mongoose.Schema({
   priority: {
     type: String,
     required: true,
-    enum: ['High', 'Medium', 'Low'],
+    enum: ['high', 'medium', 'low'],
+    lowercase: true, 
+    trim: true,
   },
   createdAt: {
     type: Date,
